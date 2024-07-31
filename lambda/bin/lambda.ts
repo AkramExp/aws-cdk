@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import * as cdk from "aws-cdk-lib";
 import { LambdaStack } from "../lib/lambda-stack";
-import { LambdaStack2 } from "../lib/lambda-stack2";
+import { LambdaApiStack } from "../lib/lambda-api-stack";
 
 const app = new cdk.App();
 new LambdaStack(app, "LambdaStack", {
@@ -11,7 +11,7 @@ new LambdaStack(app, "LambdaStack", {
   },
 });
 
-new LambdaStack2(app, "LambdaStack2", {
+new LambdaApiStack(app, "LambdaApiStack", {
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION,
