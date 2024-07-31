@@ -9,7 +9,7 @@ import {
   Vpc,
 } from "aws-cdk-lib/aws-ec2";
 
-export class AwsCdkStack extends Stack {
+export class Ec2Stack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
