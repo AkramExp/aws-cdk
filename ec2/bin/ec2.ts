@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import * as cdk from "aws-cdk-lib";
-import { AwsCdkStack } from "../lib/aws-cdk-stack";
+import { Ec2Stack } from "../lib/ec2-stack";
 
 const app = new cdk.App();
-new AwsCdkStack(app, "AwsCdkStack", {
+new Ec2Stack(app, "Ec2Stack", {
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION,
