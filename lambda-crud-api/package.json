@@ -1,8 +1,8 @@
 {
-  "name": "lambda",
+  "name": "lambda-crud-api",
   "version": "0.1.0",
   "bin": {
-    "lambda": "bin/lambda.js"
+    "lambda-crud-api": "bin/lambda-crud-api.js"
   },
   "scripts": {
     "build": "tsc",
@@ -14,8 +14,8 @@
     "@types/aws-lambda": "^8.10.142",
     "@types/jest": "^29.5.12",
     "@types/node": "20.14.9",
-    "@types/uuid": "^10.0.0",
     "aws-cdk": "2.150.0",
+    "esbuild": "^0.23.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
@@ -26,7 +26,6 @@
     "@aws-sdk/lib-dynamodb": "^3.621.0",
     "aws-cdk-lib": "2.150.0",
     "aws-lambda": "^1.0.7",
-    "constructs": "^10.0.0",
-    "uuid": "^10.0.0"
+    "constructs": "^10.0.0"
   }
 }
