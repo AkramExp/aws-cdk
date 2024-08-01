@@ -3,7 +3,7 @@ import { deleteItem } from "../handlers/posts/delete";
 import { updateItem } from "../handlers/posts/update";
 import { readItem } from "../handlers/posts/read";
 
-export const handler = async (event: APIGatewayProxyEvent) => {
+const handler = async (event: APIGatewayProxyEvent) => {
   const id = event.pathParameters?.id;
 
   if (!id) {

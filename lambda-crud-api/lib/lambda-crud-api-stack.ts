@@ -1,14 +1,7 @@
-import { Stack, StackProps, RemovalPolicy, CfnOutput } from "aws-cdk-lib";
+import { Stack, StackProps, RemovalPolicy } from "aws-cdk-lib";
 import { Construct } from "constructs";
 import { AttributeType, Table, BillingMode } from "aws-cdk-lib/aws-dynamodb";
-import {
-  Cors,
-  LambdaIntegration,
-  RestApi,
-  ApiKeySourceType,
-  ApiKey,
-  UsagePlan,
-} from "aws-cdk-lib/aws-apigateway";
+import { Cors, LambdaIntegration, RestApi } from "aws-cdk-lib/aws-apigateway";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 
 export class LambdaCrudApiStack extends Stack {
