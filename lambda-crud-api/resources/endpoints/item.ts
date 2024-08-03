@@ -1,9 +1,9 @@
 import { APIGatewayProxyEvent } from "aws-lambda";
-import { deleteItem } from "../handlers/posts/delete";
-import { updateItem } from "../handlers/posts/update";
-import { readItem } from "../handlers/posts/read";
+import { deleteItem } from "../handlers/items/delete";
+import { updateItem } from "../handlers/items/update";
+import { readItem } from "../handlers/items/read";
 
-const handler = async (event: APIGatewayProxyEvent) => {
+export const handler = async (event: APIGatewayProxyEvent) => {
   const id = event.pathParameters?.id;
 
   if (!id) {

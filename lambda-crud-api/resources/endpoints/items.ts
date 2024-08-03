@@ -1,5 +1,5 @@
 import { APIGatewayProxyEvent } from "aws-lambda";
-import { createItem } from "../handlers/posts/create";
+import { createItem } from "../handlers/items/create";
 
 export const handler = async (event: APIGatewayProxyEvent) => {
   try {

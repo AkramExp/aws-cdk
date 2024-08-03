@@ -26,16 +26,16 @@ export class LambdaCrudApiStack extends Stack {
     });
 
     // Create Lambda functions to handle requests
-    const postsLambda = new NodejsFunction(this, "PostsLambda", {
-      entry: "resources/endpoints/posts.ts",
+    const itemsLambda = new NodejsFunction(this, "ItemsLambda", {
+      entry: "resources/endpoints/items.ts",
       handler: "handler",
       environment: {
         TABLE_NAME: dbTable.tableName,
       },
     });
 
-    const postLambda = new NodejsFunction(this, "PostLambda", {
-      entry: "resources/endpoints/post.ts",
+    const itemLambda = new NodejsFunction(this, "ItemLambda", {
+      entry: "resources/endpoints/item.ts",
       handler: "handler",
       environment: {
         TABLE_NAME: dbTable.tableName,
@@ -43,22 +43,22 @@ export class LambdaCrudApiStack extends Stack {
     });
 
     // Grant Lambda functions access to DynamoDB table
-    dbTable.grantReadWriteData(postsLambda);
-    dbTable.grantReadWriteData(postLambda);
+    dbTable.grantReadWriteData(itemsLambda);
+    dbTable.grantReadWriteData(itemLambda);
 
     // Define API Gateway endpoints
-    const posts = api.root.addResource("posts");
-    const post = posts.addResource("{id}");
+    const items = api.root.addResource("items");
+    const item = items.addResource("{id}");
 
     // Connect Lambda functions to API Gateway endpoints
-    const postsIntegration = new LambdaIntegration(postsLambda);
-    const postIntegration = new LambdaIntegration(postLambda);
+    const itemsIntegration = new LambdaIntegration(itemsLambda);
+    const itemIntegration = new LambdaIntegration(itemLambda);
 
     // Define  API Gateway methods
-    posts.addMethod("POST", postsIntegration);
+    items.addMethod("POST", itemsIntegration);
 
-    post.addMethod("GET", postIntegration);
-    post.addMethod("DELETE", postIntegration);
-    post.addMethod("PATCH", postIntegration);
+    item.addMethod("GET", itemIntegration);
+    item.addMethod("DELETE", itemIntegration);
+    item.addMethod("PATCH", itemIntegration);
   }
 }
